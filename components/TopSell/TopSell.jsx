@@ -9,7 +9,7 @@ function TopSell() {
     return (
         <div className='m-4 lg:m-10'>
             <h2 className='mb-10 font-bold text-4xl'>Top Sell Last Month</h2>
-            <hr />
+            <hr className=" h-1" />
             <div className='my-10 grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-10 '>
 
                 <div className='relative rounded-md items-center grid grid-cols-2 gap-4 lg:gap-10 bg-[#f6f7fb] p-2 pt-16 lg:p-10'>
