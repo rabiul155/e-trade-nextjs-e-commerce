@@ -21,7 +21,13 @@ function page() {
     })
 
 
-    if (isLoading) return 'Loading...'
+    if (isLoading) return (
+        <div className="flex items-center mt-12 justify-center space-x-2">
+            <div className="w-4 h-4 rounded-full animate-pulse dark:bg-violet-400"></div>
+            <div className="w-4 h-4 rounded-full animate-pulse dark:bg-violet-400"></div>
+            <div className="w-4 h-4 rounded-full animate-pulse dark:bg-violet-400"></div>
+        </div>
+    );
 
     if (error) return 'An error has occurred: ' + error.message
 
@@ -37,7 +43,9 @@ function page() {
                     }
                 </div>
             </div>
-            <div className='text-gray-800'>
+
+
+            <div className=' text-gray-800'>
                 <h3 className='mb-6 font-semibold text-gray-800 text-xl'>Category</h3>
                 <ul>
 
@@ -50,7 +58,7 @@ function page() {
                     <li className='my-4'> <p >Accesories <span className=' float-right'>60</span></p></li>
 
                 </ul>
-                <h3 className='my-6 font-semibold text-gray-800 text-xl'>Category</h3>
+                <h3 className='my-6 font-semibold text-gray-800 text-xl'>Colors</h3>
                 <ul>
                     <li className='my-3'><span className='inline-block h-3  w-3  rounded-full bg-black'></span> <span className='mx-3'>Black</span></li>
                     <li className='my-3'><span className='inline-block h-3  w-3  rounded-full bg-red-600'></span> <span className='mx-3'>Red</span></li>
@@ -61,7 +69,7 @@ function page() {
                 </ul>
 
                 <div>
-                    <h3 className='my-6 font-semibold text-gray-800 text-xl'>Category</h3>
+                    <h3 className='my-6 font-semibold text-gray-800 text-xl'>Popular Products</h3>
                     <div className="my-4 flex justify-start gap-3">
                         <Image className=" bg-[#f9f9fa]" height={100} width={80} src={p1}></Image>
                         <div>
@@ -72,7 +80,7 @@ function page() {
                                 <FaStar className=" text-yellow-400" size={12}></FaStar>
                                 <FaStar className=" text-yellow-400" size={12}></FaStar>
                                 <FaStar className=" text-yellow-400" size={12}></FaStar>
-                                <FaStar className=" text-yellow-400" size={12}></FaStar>
+
                             </div>
 
                         </div>

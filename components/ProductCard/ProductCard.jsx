@@ -2,27 +2,39 @@
 import { FaStar, FaCartArrowDown, FaRegEye, FaRegHeart } from "react-icons/fa";
 
 import styles from './ProductCard.module.css'
+import { useRouter } from 'next/navigation';
 
 function ProductCard({ product }) {
 
     const { id, img, name, price, ratingsCount
     } = product;
     console.log(product);
+
+    const router = useRouter()
+
+
+    const viewDetails = () => {
+
+        localStorage.setItem('product', JSON.stringify(product))
+
+        router.push(`/products/${id}`)
+    }
+
     return (
         <div className={styles.mainContent}>
-            <div className=" bg-[#f9f9fa] mx-auto ">
+            <div className="rounded-2xl bg-[#f9f9fa] mx-auto ">
                 <div className={styles.cardContent}>
                     <img src={img} className=" mx-auto" ></img>
                     <table className={styles.tableContent}>
                         <tbody>
-                            <tr className=" border
-                         border-collapse flex bg-white ">
+                            <tr onClick={viewDetails} className=" border
+                         border-collapse flex   bg-white ">
                                 <td className="h-9 w-11 border
-                         border-collapse flex items-center justify-center"><FaRegEye></FaRegEye></td>
+                         border-collapse hover:bg-gray-900 hover:text-white duration-300 flex items-center justify-center"><FaRegEye></FaRegEye></td>
                                 <td className="h-9 w-11 border
-                         border-collapse flex items-center justify-center"><FaCartArrowDown></FaCartArrowDown></td>
+                         border-collapse hover:bg-gray-900 hover:text-white duration-300 flex items-center justify-center"><FaCartArrowDown></FaCartArrowDown></td>
                                 <td className="h-9 w-11 border
-                         border-collapse flex items-center justify-center"><FaRegHeart></FaRegHeart></td>
+                         border-collapse hover:bg-gray-900 hover:text-white duration-300 flex items-center justify-center"><FaRegHeart></FaRegHeart></td>
                             </tr>
                         </tbody>
                     </table>
