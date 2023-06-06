@@ -39,11 +39,19 @@ function Navbar() {
                     Help
                 </Link>
             </li>
+            <li className="mr-5 flex items-center">
+                <Link
+                    className="hover:bg-[#333333] font-semibold hover:text-white px-4 py-2 rounded-2xl duration-150"
+                    href='/dashboard'
+                >
+                    Dashboard
+                </Link>
+            </li>
         </>
     );
 
     return (
-        <div>
+        <div className=" ">
             <div className={`${styles.mainNav}`}>
                 <div className="  flex justify-between items-center px-2 lg:px-4 text-gray-800 h-[70px]">
                     <div className="flex items-center">
@@ -56,13 +64,13 @@ function Navbar() {
                     </div>
                     <div className="flex items-center">
 
-                        <Link href='/'>
+                        <Link href='/login'>
                             <button className="lg:mr-5  text-[16px] font-semibold hover:bg-[#333333] hover:text-white  px-4 py-2 rounded-2xl duration-150">
                                 Login
                             </button>
                         </Link>
 
-                        <Link href='/'>
+                        <Link href='/signup'>
                             <button className=" bg-white text-black rounded-2xl lg:px-3 px-2 py-1 font-semibold duration-150">
                                 Sign Up
                             </button>
