@@ -3,13 +3,16 @@
 import { HiMenu } from "react-icons/hi";
 import { RxCross2 } from "react-icons/rx";
 import logo from '../../public/Images/logo.png'
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import styles from './Navbar.module.css'
 import Link from 'next/link';
 import Image from "next/image";
+import { dashboardContext } from "@/context/Context";
 
 
 function Navbar() {
+
+    const { toggle, setToggle } = useContext(dashboardContext);
 
     const [open, setOpen] = useState(false);
 
@@ -55,7 +58,22 @@ function Navbar() {
             <div className={`${styles.mainNav}`}>
                 <div className="  flex justify-between items-center px-2 lg:px-4 text-gray-800 h-[70px]">
                     <div className="flex items-center">
-
+                        <button
+                            onClick={() => setToggle(!toggle)}
+                            className="  p-2 rounded-[50%] duration-300 text-white font-bold lg:hidden block"
+                        >
+                            {!toggle ? (
+                                <RxCross2
+                                    className="text-black font-bold "
+                                    size={25}
+                                />
+                            ) : (
+                                <HiMenu
+                                    className="text-black font-bold "
+                                    size={25}
+                                />
+                            )}
+                        </button>
                         <Link className="text-[22px] font-semibold mr-0 lg:mr-6" href="/"><Image src={logo}></Image></Link>
 
                         <ul className="lg:flex hidden items-center text-[16px]">
@@ -70,7 +88,7 @@ function Navbar() {
                             </button>
                         </Link>
 
-                        <Link href='/signup'>
+                        <Link className=" hidden lg:block" href='/signup'>
                             <button className=" bg-white text-black rounded-2xl lg:px-3 px-2 py-1 font-semibold duration-150">
                                 Sign Up
                             </button>
