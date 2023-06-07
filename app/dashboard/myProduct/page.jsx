@@ -1,35 +1,29 @@
 'use client'
 import { FaStar } from "react-icons/fa";
 import { useQuery } from '@tanstack/react-query';
+import Loading from "@/components/Loading/Loading";
 
 function page() {
 
     const { isLoading, error, data: products = [] } = useQuery({
         queryKey: ['products'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/products')
+            const res = await fetch('https://next-js-e-commerce-server.vercel.app/products')
             const data = await res.json()
             return data;
         }
     })
 
 
-    if (isLoading) return (
-        <div className="flex items-center mt-12 justify-center space-x-2">
-            <div className="w-4 h-4 rounded-full animate-pulse bg-violet-400"></div>
-            <div className="w-4 h-4 rounded-full animate-pulse bg-violet-400"></div>
-            <div className="w-4 h-4 rounded-full animate-pulse bg-violet-400"></div>
-        </div>
-    );
-
+    if (isLoading) return <Loading></Loading>
     if (error) return 'An error has occurred: ' + error.message
 
     console.log(products);
     return (
-        <div>
-            <h2 className=' text-center mb-2 text-3xl text-gray-800 font-bold'>My Product</h2>
+        <div className=" m-2 lg:m-0">
+            {/* <h2 className=' text-center mb-2 text-3xl text-gray-800 font-bold'>My Product</h2> */}
 
-            <div className="hidden sm:block">
+            <div className="hidden sm:block h-screen overflow-y-scroll">
                 <table className="min-w-full text-xs">
 
                     <thead className="bg-gray-100">

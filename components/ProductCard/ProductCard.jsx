@@ -22,9 +22,9 @@ function ProductCard({ product }) {
 
     return (
         <div className={styles.mainContent}>
-            <div className="rounded-2xl bg-[#f9f9fa] mx-auto ">
+            <div className="rounded bg-[#f9f9fa] mx-auto ">
                 <div className={styles.cardContent}>
-                    <img src={img} className=" mx-auto" ></img>
+                    <img src={img} className="rounded-t mx-auto" ></img>
                     <table className={styles.tableContent}>
                         <tbody>
                             <tr onClick={viewDetails} className=" border

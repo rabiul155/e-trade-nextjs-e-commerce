@@ -20,6 +20,7 @@ function Navbar() {
         <>
             <li className="mr-5 flex items-center">
                 <Link
+                    onClick={() => setOpen(false)}
                     className="hover:bg-[#333333] font-semibold hover:text-white  px-4 py-2 rounded-2xl duration-150"
                     href='/products'
                 >
@@ -28,6 +29,7 @@ function Navbar() {
             </li>
             <li className="mr-5 flex items-center">
                 <Link
+                    onClick={() => setOpen(false)}
                     className="hover:bg-[#333333] font-semibold hover:text-white  px-4 py-2 rounded-2xl duration-150"
                     href='/'
                 >
@@ -36,6 +38,7 @@ function Navbar() {
             </li>
             <li className="mr-5 flex items-center">
                 <Link
+                    onClick={() => setOpen(false)}
                     className="hover:bg-[#333333] font-semibold hover:text-white px-4 py-2 rounded-2xl duration-150"
                     href='/'
                 >
@@ -44,6 +47,7 @@ function Navbar() {
             </li>
             <li className="mr-5 flex items-center">
                 <Link
+                    onClick={() => setOpen(false)}
                     className="hover:bg-[#333333] font-semibold hover:text-white px-4 py-2 rounded-2xl duration-150"
                     href='/dashboard'
                 >
@@ -62,17 +66,17 @@ function Navbar() {
                             onClick={() => setToggle(!toggle)}
                             className="  p-2 rounded-[50%] duration-300 text-white font-bold lg:hidden block"
                         >
-                            {!toggle ? (
+                            {toggle ?
                                 <RxCross2
                                     className="text-black font-bold "
                                     size={25}
                                 />
-                            ) : (
+                                :
                                 <HiMenu
                                     className="text-black font-bold "
                                     size={25}
                                 />
-                            )}
+                            }
                         </button>
                         <Link className="text-[22px] font-semibold mr-0 lg:mr-6" href="/"><Image src={logo}></Image></Link>
 

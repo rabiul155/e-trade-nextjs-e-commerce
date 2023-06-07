@@ -5,7 +5,7 @@ export const dashboardContext = createContext();
 
 function Context({ children }) {
 
-    const [toggle, setToggle] = useState(true)
+    const [toggle, setToggle] = useState(false)
 
     const value = { toggle, setToggle }
 

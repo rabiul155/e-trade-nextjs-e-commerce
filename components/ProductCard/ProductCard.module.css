@@ -9,7 +9,7 @@
 .tableContent {
     position: absolute;
     bottom: -40px;
-    left: 60px;
+    left: 25%;
     opacity: 0;
     transition: all linear .3s;
     cursor: pointer;
@@ -26,7 +26,7 @@
     .tableContent {
         bottom: 10px;
         opacity: 1;
-        left: 100px
+        left: 28%;
     }
 
     .cardContent {

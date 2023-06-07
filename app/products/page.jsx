@@ -6,6 +6,7 @@ import Image from 'next/image';
 import p1 from '../../public/Images/p1.jpg'
 import p2 from '../../public/Images/p2.jpg'
 import p3 from '../../public/Images/p3.jpg'
+import Loading from "@/components/Loading/Loading";
 
 
 function page() {
@@ -14,26 +15,20 @@ function page() {
     const { isLoading, error, data: products = [] } = useQuery({
         queryKey: ['products'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/products')
+            const res = await fetch('https://next-js-e-commerce-server.vercel.app/products')
             const data = await res.json()
             return data;
         }
     })
 
 
-    if (isLoading) return (
-        <div className="flex items-center mt-12 justify-center space-x-2">
-            <div className="w-4 h-4 rounded-full animate-pulse bg-violet-400"></div>
-            <div className="w-4 h-4 rounded-full animate-pulse bg-violet-400"></div>
-            <div className="w-4 h-4 rounded-full animate-pulse bg-violet-400"></div>
-        </div>
-    );
+    if (isLoading) return <Loading></Loading>
 
     if (error) return 'An error has occurred: ' + error.message
 
     return (
         <div className=' grid grid-cols-1 md:grid-cols-4 gap-8 p-6'>
-            <div className='col-span-3'>
+            <div className='col-span-3 '>
                 <div className=' grid grid-cols-1 lg:grid-cols-3 gap-6'>
                     {
                         products?.map(product => <ProductCard
